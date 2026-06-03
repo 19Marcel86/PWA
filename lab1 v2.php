@@ -1,39 +1,22 @@
 <?php
-$grupa = isset($_GET['grupa']) ? $_GET['grupa'] : '';
-$poruka= "";
-switch ($grupa){
-    case "grupa01":
-        $poruka = "Odabrali ste grupu 1.";
-        break;
-    case "grupa02":
-        $poruka = "Odabrali ste grupu 2.";
-        break;
-    case "grupa03":
-        $poruka = "Odabrali ste grupu 3.";
-        break;
-    default:
-        $poruka = "Nepoznat odabir.";
-}
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labos 1 v2</title>
-</head>
-<body>
-    <h2> Odaberite grupu </h2>
-    <form method="GET">
-        <select name="grupa">
-            <option value="">Odaberite</option>
-            <option value="grupa01" <?= $grupa === 'grupa01' ? 'selected' : ''?>>grupa01</option>
-            <option value="grupa02" <?= $grupa === 'grupa02' ? 'selected' : ''?>>grupa02</option>
-            <option value="grupa03" <?= $grupa === 'grupa03' ? 'selected' : ''?>>grupa03</option>
-        </select>
-        <button type="submit">Potvrdi</button>
-    </form>
-    <p><?= htmlspecialchars($poruka)?></p>
-</body>
-</html>
+$ocjena_predmet1 = 3;
+$ocjena_predmet2 = 4;
+$ocjena_predmet3 = 5;
+$ocjena_predmet4 = 2;
+
+$prosjek = ($ocjena_predmet1 + $ocjena_predmet2 + $ocjena_predmet3 + $ocjena_predmet4) / 4;
+
+if ($prosjek < 1.5) {
+    echo "Vaš prosjek je $prosjek (nedovoljan)";
+} else if ($prosjek < 2.5) {
+    echo "Vaš prosjek je $prosjek (dovoljan)";
+} else if ($prosjek < 3.5) {
+    echo "Vaš prosjek je $prosjek (dobar)";
+} else if ($prosjek < 4.5) {
+    echo "Vaš prosjek je $prosjek (vrlo dobar)";
+} else {
+    echo "Vaš prosjek je $prosjek (odličan)";
+}
+
+?>
